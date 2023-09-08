@@ -1,4 +1,4 @@
-import mysql.connector,cgi
+import cgi, mysql.connector
 
 conexion1 = mysql.connector.connect(host="localhost", user="publico", passwd="123456", database="basedatos2")
 cursor1=conexion1.cursor()
@@ -25,10 +25,11 @@ print("</td>")
 print("</tr>")
 print("<th>")
 for linea in cursor1:
-    print('<tr>')
-    print('<td class="tabla">')
-    print(linea)
-    print("<td>")
+    print('<tr class="tabla">')
+    for dato in linea:
+        print("<td>")
+        print(dato)
+        print("</td>")
     print("</tr>")
 print("<table>")
 print("</body>")
